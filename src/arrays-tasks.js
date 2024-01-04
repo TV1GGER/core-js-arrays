@@ -74,8 +74,12 @@ function sumArrays(arr1, arr2) {
  *    findElement(['Array', 'Number', 'string'], 'Date') => -1
  *    findElement([0, 1, 2, 3, 4, 5], 5) => 5
  */
-function findElement(/* arr, value */) {
-  throw new Error('Not implemented');
+function findElement(arr, value) {
+  const searchNum = value;
+  if (arr.indexOf(searchNum) === -1) {
+    return -1;
+  }
+  return arr.indexOf(searchNum);
 }
 
 /**
