@@ -680,8 +680,35 @@ function shiftArray(/* arr, n */) {
  *   sortDigitNamesByNumericOrder([ 'nine','eight','nine','eight' ]) => [ 'eight','eight','nine','nine']
  *   sortDigitNamesByNumericOrder([ 'one','one','one','zero' ]) => [ 'zero','one','one','one' ]
  */
-function sortDigitNamesByNumericOrder(/* arr */) {
-  throw new Error('Not implemented');
+function sortDigitNamesByNumericOrder(arr) {
+  const numArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const wordArr = [
+    'zero',
+    'one',
+    'two',
+    'three',
+    'four',
+    'five',
+    'six',
+    'seven',
+    'eight',
+    'nine',
+    'ten',
+  ];
+  const hulfResult = [];
+  const resultArr = [];
+  function transformToNum(n) {
+    hulfResult.push(numArr[wordArr.indexOf(n)]);
+  }
+  function transformToWord(x) {
+    resultArr.push(wordArr[numArr.indexOf(x)]);
+  }
+  if (arr.length !== 0) {
+    arr.some(transformToNum);
+    hulfResult.sort((a, b) => a - b).some(transformToWord);
+    return resultArr;
+  }
+  return arr;
 }
 
 /**
