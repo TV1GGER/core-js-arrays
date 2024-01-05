@@ -404,21 +404,23 @@ function createChunks(/* arr, chunkSize */) {
  *    generateOdds(2) => [ 1, 3 ]
  *    generateOdds(5) => [ 1, 3, 5, 7, 9 ]
  */
-function generateOdds(/* len */) {
-  // const resultArr = new Array(len);
-  // const result = [];
-  // function setItem(n) {
-  //   if (resultArr.indexOf(n) === 0) {
-  //     return result.push(1);
-  //   }
-  //   if (resultArr.indexOf(n) === 0) {
-  //     return result.push(resultArr.indexOf(n) + 2);
-  //   }
-  //   return false;
-  // }
-  // resultArr.flatMap(setItem);
-  // return result;
-  throw new Error('Not implemented');
+function generateOdds(len) {
+  const resultArr = [];
+  let count = len;
+  let setItemNum = 1;
+  if (len === 0) {
+    return [];
+  }
+  function createArr(n) {
+    if (n !== 0) {
+      resultArr.push(setItemNum);
+      setItemNum += 2;
+      count -= 1;
+      createArr(count);
+    }
+  }
+  createArr(count);
+  return resultArr;
 }
 
 /**
@@ -434,6 +436,12 @@ function generateOdds(/* len */) {
  *   getElementByIndices([[[ 1, 2, 3]]], [ 0, 0, 1 ]) => 2        (arr[0][0][1])
  */
 function getElementByIndices(/* arr, indices */) {
+  // let index = '';
+  // function getIndex(n) {
+  //   index += [n];
+  // }
+  // indices.some(getIndex);
+  // return arr[index];
   throw new Error('Not implemented');
 }
 
